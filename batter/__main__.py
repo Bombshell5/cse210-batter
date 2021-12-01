@@ -10,7 +10,7 @@ from game.physics_service import PhysicsService
 from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
-# from game.brick import Brick
+from game.Brick import Brick
 # from game.ball import Ball
 # from game.paddle import Paddle
 # from game.control_actors_action import ControlActorsAction
