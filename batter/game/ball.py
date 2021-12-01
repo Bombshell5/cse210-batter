@@ -12,7 +12,7 @@ class Ball(Actor):
         position = Point(x,y)
         self.set_position(position)
         self.set_image(constants.IMAGE_BALL)
-        self.set_velocity(Point(10,10))
+        self.set_velocity(Point(constants.BALL_X,constants.BALL_Y))
 
 
     def set_position(self, position):

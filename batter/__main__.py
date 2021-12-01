@@ -33,9 +33,6 @@ def main():
             cast["bricks"].append(brick)
 
 
-
-
-
     cast["balls"] = []
     # TODO: Create a ball here and add it to the list
     ball = Ball(400,400)
