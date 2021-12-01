@@ -1,4 +1,5 @@
 import random
+from game.move_actors_action import MoveActorsAction
 from game import constants
 from game.director import Director
 from game.actor import Actor
@@ -11,31 +12,35 @@ from game.audio_service import AudioService
 
 # TODO: Add imports similar to the following when you create these classes
 from game.Brick import Brick
-# from game.ball import Ball
+from game.ball import Ball
 # from game.paddle import Paddle
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
-# from game.move_actors_action import MoveActorsAction
+from game.move_actors_action import MoveActorsAction
 
 def main():
 
-    Brick1 = Brick(10,10)
-    Brick2 = Brick(100, 10)
-    Brick3 = Brick(200,10)
-
-    bricks = [Brick1._position,Brick2._position,Brick3._position]
-    for x in bricks:
-        print (x)
     
     # create the cast {key: tag, value: list}
     cast = {}
-
     cast["bricks"] = []
     # TODO: Create bricks here and add them to the list
 
+    for x in range(0, constants.MAX_X, constants.BRICK_WIDTH + 10):
+        for y in range(0, 200, constants.BRICK_HEIGHT):
+            brick = Brick(x,y)
+            cast["bricks"].append(brick)
+
+
+
+
+
     cast["balls"] = []
     # TODO: Create a ball here and add it to the list
+    ball = Ball(400,400)
+
+    cast["balls"].append(ball)
 
     cast["paddle"] = []
     # TODO: Create a paddle here and add it to the list
@@ -50,11 +55,12 @@ def main():
     audio_service = AudioService()
 
     draw_actors_action = DrawActorsAction(output_service)
+    move_actors_action = MoveActorsAction()
 
     # TODO: Create additional actions here and add them to the script
 
     script["input"] = []
-    script["update"] = []
+    script["update"] = [move_actors_action]
     script["output"] = [draw_actors_action]
 
 
