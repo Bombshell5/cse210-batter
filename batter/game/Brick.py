@@ -20,7 +20,5 @@ class Brick(Actor):
 
     def get_position(self):
         return super().get_position()
-
-
-
+        
 
