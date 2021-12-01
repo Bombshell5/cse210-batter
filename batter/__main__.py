@@ -13,7 +13,7 @@ from game.audio_service import AudioService
 # TODO: Add imports similar to the following when you create these classes
 from game.brick import Brick
 from game.ball import Ball
-# from game.paddle import Paddle
+from game.paddle import Paddle
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
@@ -27,7 +27,7 @@ def main():
     cast["bricks"] = []
     # TODO: Create bricks here and add them to the list
 
-    for x in range(0, constants.MAX_X, constants.BRICK_WIDTH + 10):
+    for x in range(0, constants.MAX_X, constants.BRICK_WIDTH + constants.BRICK_WIDTH):
         for y in range(0, 200, constants.BRICK_HEIGHT):
             brick = Brick(x,y)
             cast["bricks"].append(brick)
@@ -44,7 +44,8 @@ def main():
 
     cast["paddle"] = []
     # TODO: Create a paddle here and add it to the list
-
+    paddle = Paddle(constants.PADDLE_X,constants.PADDLE_Y)
+    cast["paddle"].append(paddle)
 
     # Create the script {key: tag, value: list}
     script = {}
