@@ -20,6 +20,14 @@ from game.Brick import Brick
 
 def main():
 
+    Brick1 = Brick(10,10)
+    Brick2 = Brick(100, 10)
+    Brick3 = Brick(200,10)
+
+    bricks = [Brick1._position,Brick2._position,Brick3._position]
+    for x in bricks:
+        print (x)
+    
     # create the cast {key: tag, value: list}
     cast = {}
 
