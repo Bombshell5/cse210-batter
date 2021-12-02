@@ -14,6 +14,7 @@ from game.audio_service import AudioService
 from game.brick import Brick
 from game.ball import Ball
 from game.paddle import Paddle
+from game.handle_input_action import HandleInputAction
 # from game.control_actors_action import ControlActorsAction
 # from game.handle_collisions_action import HandleCollisionsAction
 # from game.handle_off_screen_action import HandleOffScreenAction
@@ -27,8 +28,8 @@ def main():
     cast["bricks"] = []
     # TODO: Create bricks here and add them to the list
 
-    for x in range(0, constants.MAX_X, constants.BRICK_WIDTH + constants.BRICK_WIDTH):
-        for y in range(0, 200, constants.BRICK_HEIGHT):
+    for x in range(0, constants.MAX_X, constants.BRICK_WIDTH + 20):
+        for y in range(0, 200, constants.BRICK_HEIGHT + 20):
             brick = Brick(x,y)
             cast["bricks"].append(brick)
 
@@ -54,10 +55,11 @@ def main():
 
     draw_actors_action = DrawActorsAction(output_service)
     move_actors_action = MoveActorsAction()
+    handle_input_action = HandleInputAction(input_service)
 
     # TODO: Create additional actions here and add them to the script
 
-    script["input"] = []
+    script["input"] = [handle_input_action]
     script["update"] = [move_actors_action]
     script["output"] = [draw_actors_action]
 

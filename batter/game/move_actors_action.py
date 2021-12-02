@@ -19,6 +19,6 @@ class MoveActorsAction(Action):
                 new_x = x + dx
                 new_y = y + dy
                 actor.set_position(Point(new_x,new_y))
-        paddle = cast["paddle"][0]
+    
         
-
+        
